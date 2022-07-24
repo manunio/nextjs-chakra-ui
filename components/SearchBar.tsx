@@ -13,7 +13,9 @@ import {
 const SearchBar = () => {
   return (
     <InputGroup bgColor="#fff" mb={4} border="none" borderColor="#fff" borderRadius="10px" mr={2} >
-      <InputLeftElement pointerEvents="none" children={<FiSearch color="gray" />} />
+      <InputLeftElement pointerEvents="none">
+        <FiSearch color="gray" />
+      </InputLeftElement>
       <Input type="number" pl="Search" borderRadius="10px" />
     </InputGroup>
   );

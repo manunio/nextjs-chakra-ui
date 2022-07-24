@@ -49,9 +49,9 @@ const fakeData = [
 ]
 
 const generateTableRows = (num: number = 1) => [...Array(num).keys()]
-  .map((_) => fakeData.map(data => {
+  .map((_) => fakeData.map((data, i) => {
     return (
-      <Tr>
+      <Tr key={i}>
         <Td>
           <Flex align="center">
             <Avatar size="sm" mr={2} src={data.avatarImg} />
