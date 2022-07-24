@@ -17,17 +17,8 @@ import {
 } from "@chakra-ui/react";
 
 import {
-  FiHome,
-  FiPieChart,
-  FiDollarSign,
-  FiBox,
-  FiCalendar,
   FiChevronDown,
   FiChevronUp,
-  FiPlus,
-  FiCreditCard,
-  FiSearch,
-  FiBell
 } from "react-icons/fi"
 
 const fakeData = [
@@ -57,24 +48,25 @@ const fakeData = [
   },
 ]
 
-const generateTableRows = (num: number = 1) => [...Array(num).keys()].map((_) => fakeData.map(data => {
-  return (
-    <Tr>
-      <Td>
-        <Flex align="center">
-          <Avatar size="sm" mr={2} src={data.avatarImg} />
-          <Flex flexDir="column">
-            <Heading size="sm" letterSpacing="tight">{data.nameOfTransaction}</Heading>
-            <Text fontSize="sm" color="gray">{data.nameOfTransactionText}</Text>
+const generateTableRows = (num: number = 1) => [...Array(num).keys()]
+  .map((_) => fakeData.map(data => {
+    return (
+      <Tr>
+        <Td>
+          <Flex align="center">
+            <Avatar size="sm" mr={2} src={data.avatarImg} />
+            <Flex flexDir="column">
+              <Heading size="sm" letterSpacing="tight">{data.nameOfTransaction}</Heading>
+              <Text fontSize="sm" color="gray">{data.nameOfTransactionText}</Text>
+            </Flex>
           </Flex>
-        </Flex>
-      </Td>
-      <Td>{data.category}</Td>
-      <Td isNumeric>{data.cashback}</Td>
-      <Td isNumeric><Text fontWeight="bold" display="inline-table">{data.amount}</Text>.00</Td>
-    </Tr>
-  )
-}))
+        </Td>
+        <Td>{data.category}</Td>
+        <Td isNumeric>{data.cashback}</Td>
+        <Td isNumeric><Text fontWeight="bold" display="inline-table">{data.amount}</Text>.00</Td>
+      </Tr>
+    )
+  }))
 
 const TransactionTable = () => {
   const [display, changeDisplay] = useState("hide")

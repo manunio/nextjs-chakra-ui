@@ -4,6 +4,9 @@ import {
   Flex,
   Heading,
   IconButton,
+  Input,
+  InputGroup,
+  InputLeftElement,
   Text,
 } from "@chakra-ui/react";
 
@@ -26,6 +29,8 @@ import Sidebar from "../components/Sidebar";
 import Header from "../components/Header";
 import UserAvatar from "../components/UserAvatar";
 import TransactionTable from "../components/TransactionTable";
+import SearchBar from "../components/SearchBar";
+import NotificationIcon from "../components/NotificationIcon";
 
 export default function Dashboard() {
   return (
@@ -76,6 +81,13 @@ export default function Dashboard() {
 
       {/* column 3 */}
       <Flex w="35%" bg="#f5f5f5" p="3%" flexDir="column" overflow="auto" >
+        <Flex alignContent="center">
+          {/* Search Bar */}
+          <SearchBar />
+          {/* Notification */}
+          <NotificationIcon />
+        </Flex>
+        <Heading letterSpacing="tight">My Cards</Heading>
       </Flex>
     </Flex >
   )
