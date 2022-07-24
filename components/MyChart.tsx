@@ -29,7 +29,7 @@ const data: any = {
       data: [500, 300, 400, 500, 800, 650, 700, 690, 1000, 1200, 1050, 1300],
     },
   ],
-}
+};
 
 const options = {
   maintainAspectRatio: true,
@@ -51,14 +51,14 @@ const options = {
       display: false
     }
   }
-}
+};
 
 const MyChart = () => (
   <Line
     data={data}
     options={options}
   />
-)
+);
 
 
-export default MyChart
+export default MyChart;

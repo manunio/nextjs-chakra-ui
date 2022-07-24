@@ -1,10 +1,10 @@
 import React from "react";
+
 import {
-  Avatar,
   Flex,
   Heading,
   IconButton,
-  Text
+  Text,
 } from "@chakra-ui/react";
 
 import {
@@ -20,10 +20,12 @@ import {
   FiSearch,
   FiBell
 } from "react-icons/fi"
-import MyChart from "../components/MyChar";
+
+import MyChart from "../components/MyChart";
 import Sidebar from "../components/Sidebar";
 import Header from "../components/Header";
 import UserAvatar from "../components/UserAvatar";
+import TransactionTable from "../components/TransactionTable";
 
 export default function Dashboard() {
   return (
@@ -62,11 +64,13 @@ export default function Dashboard() {
           </Flex>
           <IconButton aria-label="calendar" icon={<FiCalendar />} />
         </Flex>
+        {/* Transaction Table */}
+        <TransactionTable />
       </Flex>
 
       {/* column 3 */}
       <Flex w="35%" bg="#f5f5f5" p="3%" flexDir="column" overflow="auto" >
       </Flex>
-    </Flex>
+    </Flex >
   )
 }
