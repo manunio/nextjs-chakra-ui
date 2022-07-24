@@ -1,6 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 
 import {
+  Icon,
+  Box,
   Flex,
   Heading,
   IconButton,
@@ -33,6 +35,8 @@ import SearchBar from "../components/SearchBar";
 import NotificationIcon from "../components/NotificationIcon";
 
 export default function Dashboard() {
+  const [value, changeValue] = useState(1)
+
   return (
     <Flex
       h="100vh"
@@ -88,6 +92,51 @@ export default function Dashboard() {
           <NotificationIcon />
         </Flex>
         <Heading letterSpacing="tight">My Cards</Heading>
+        {
+          value === 1 &&
+          <Box
+            borderRadius="25px"
+            mt={4}
+            w="100%"
+            h="200px"
+            bgGradient="linear(to-t, #B57295, #29259A)"
+          >
+            <Flex p="1em" color="#fff" flexDir="column" h="100%" justify="space-between">
+              <Flex justify="space-between" w="100%" align="flex-start" >
+                <Flex flexDir="column">
+                  <Text color="gray.400">Current Balance</Text>
+                  <Text fontWeight="bold" fontSize="xl">$5,750.20</Text>
+                </Flex>
+                <Flex align="center" >
+                  <Icon mr={2} as={FiCreditCard} />
+                  <Text>Rise.</Text>
+                </Flex>
+              </Flex>
+              <Text mb={4}>**** **** **** 1289</Text>
+              <Flex align="flex-end" justify="space-between">
+                <Flex>
+                  <Flex flexDir="column" mr={4} >
+                    <Text textTransform="uppercase" fontSize="xs">
+                      Valid Thru
+                    </Text>
+                    <Text fontSize="lg">
+                      12/23
+                    </Text>
+                  </Flex>
+                  <Flex flexDir="column" >
+                    <Text textTransform="uppercase" fontSize="xs">
+                      CVV
+                    </Text>
+                    <Text fontSize="lg">
+                      ***
+                    </Text>
+                  </Flex>
+                </Flex>
+                <Icon as={FiCreditCard} />
+              </Flex>
+            </Flex>
+          </Box>
+        }
       </Flex>
     </Flex >
   )
