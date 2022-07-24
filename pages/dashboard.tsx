@@ -48,7 +48,13 @@ export default function Dashboard() {
       </Flex>
 
       {/* column 2 */}
-      <Flex w="55%" p="3%" flexDir="column" overflow="auto" minH="100vh" >
+      <Flex
+        w="55%"
+        p="3%"
+        flexDir="column"
+        overflow="auto"
+        minH="100vh"
+      >
         <Heading fontWeight="normal" mb={4} letterSpacing="tight" >Welcome back, <Flex fontWeight="bold" display="inline-flex" >Calvin</Flex></Heading>
         <Text color="gray" fontSize="sm" >My Balance</Text>
         <Text fontWeight="bold" fontSize="2xl" >$5,750.20</Text>

@@ -11,7 +11,9 @@ import {
   Tbody,
   Th,
   Tr,
-  Td
+  Td,
+  IconButton,
+  Divider
 } from "@chakra-ui/react";
 
 import {
@@ -38,23 +40,24 @@ const fakeData = [
     amount: "-$240"
   },
   {
-    avatarImg: "starbucks.jpeg",
-    nameOfTransaction: "Amazon",
+    avatarImg: "starbucks.png",
+    nameOfTransaction: "Starbucks",
     nameOfTransactionText: "Apr 22, 2021 at 2.43pm",
     category: "Electronic Devices",
     cashback: "+$23",
     amount: "-$32"
   },
   {
-    avatarImg: "youtube.jpeg",
-    nameOfTransaction: "Amazon",
-    nameOfTransactionText: "Apr 24, 2021 at 1.40pm",
+    avatarImg: "youtube.png",
+    nameOfTransaction: "Youtube",
+    nameOfTransactionText: "Apr 13, 2021 at 11.12am",
     category: "Electronic Devices",
     cashback: "+$4",
     amount: "-$112"
   },
 ]
-const Rows = () => fakeData.map(data => {
+
+const generateTableRows = (num: number = 1) => [...Array(num).keys()].map((_) => fakeData.map(data => {
   return (
     <Tr>
       <Td>
@@ -71,14 +74,7 @@ const Rows = () => fakeData.map(data => {
       <Td isNumeric><Text fontWeight="bold" display="inline-table">{data.amount}</Text>.00</Td>
     </Tr>
   )
-})
-
-const TableRow = (num: number) => {
-  for (let i = 0; i < num; i++) {
-    return ({ Rows });
-  }
-}
-
+}))
 
 const TransactionTable = () => {
   const [display, changeDisplay] = useState("hide")
@@ -96,51 +92,19 @@ const TransactionTable = () => {
             </Tr>
           </Thead>
           <Tbody>
-            <Tr>
-              <Td>
-                <Flex align="center">
-                  <Avatar size="sm" mr={2} src="amazon.jpeg" />
-                  <Flex flexDir="column">
-                    <Heading size="sm" letterSpacing="tight">Amazon</Heading>
-                    <Text fontSize="sm" color="gray">Apr 24, 2021 at 1.40pm</Text>
-                  </Flex>
-                </Flex>
-              </Td>
-              <Td>Electronic Devices</Td>
-              <Td isNumeric>+$2</Td>
-              <Td isNumeric><Text fontWeight="bold" display="inline-table">-$242</Text>.00</Td>
-            </Tr>
-            <Tr>
-              <Td>
-                <Flex align="center">
-                  <Avatar size="sm" mr={2} src="starbucks.png" />
-                  <Flex flexDir="column">
-                    <Heading size="sm" letterSpacing="tight">Starbucks</Heading>
-                    <Text fontSize="sm" color="gray">Apr 22, 2021 at 2.43pm</Text>
-                  </Flex>
-                </Flex>
-              </Td>
-              <Td>Electronic Devices</Td>
-              <Td isNumeric>+$23</Td>
-              <Td isNumeric><Text fontWeight="bold" display="inline-table">-$32</Text>.00</Td>
-            </Tr>
-            <Tr>
-              <Td>
-                <Flex align="center">
-                  <Avatar size="sm" mr={2} src="youtube.png" />
-                  <Flex flexDir="column">
-                    <Heading size="sm" letterSpacing="tight">Youtube</Heading>
-                    <Text fontSize="sm" color="gray">Apr 13, 2021 at 11.23am</Text>
-                  </Flex>
-                </Flex>
-              </Td>
-              <Td>Electronic Devices</Td>
-              <Td isNumeric>+$4</Td>
-              <Td isNumeric><Text fontWeight="bold" display="inline-table">-$112</Text>.00</Td>
-            </Tr>
-
+            {generateTableRows()}
+            {display === "show" && generateTableRows()}
           </Tbody>
         </Table>
+      </Flex>
+      <Flex align="center">
+        <Divider />
+        <IconButton
+          aria-label=""
+          icon={display === "show" ? <FiChevronUp /> : <FiChevronDown />}
+          onClick={() => display === "show" ? changeDisplay("none") : changeDisplay("show")}
+        />
+        <Divider />
       </Flex>
     </Flex>
   );
