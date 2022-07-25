@@ -10,6 +10,9 @@ import {
   InputGroup,
   InputLeftElement,
   Text,
+  Button,
+  AvatarGroup,
+  Avatar,
 } from "@chakra-ui/react";
 
 import {
@@ -105,6 +108,49 @@ export default function Dashboard() {
           value === 3 &&
           <Card gradient={["orange.300", "pink.600"]} />
         }
+        <Flex justifyContent="center" mt={2}>
+          <Button bgColor={value === 1 ? "gray.600" : "gray.400"} onClick={() => changeValue(1)} size="xs" mx={1} />
+          <Button bgColor={value === 2 ? "gray.600" : "gray.400"} onClick={() => changeValue(2)} size="xs" mx={1} />
+          <Button bgColor={value === 3 ? "gray.600" : "gray.400"} onClick={() => changeValue(3)} size="xs" mx={1} />
+        </Flex>
+        <Flex flexDir="column" my={4} >
+          <Flex justify="space-between" mb={2} >
+            <Text>Balance</Text>
+            <Text fontWeight="bold">$140.42</Text>
+          </Flex>
+          <Flex justify="space-between" mb={2} >
+            <Text>Credit Limit</Text>
+            <Text fontWeight="bold">$150.00</Text>
+          </Flex>
+        </Flex>
+        <Heading letterSpacing="tight" size="md" my={3}>Send money to </Heading>
+        <Flex>
+          <AvatarGroup size="md" max={3} >
+            <Avatar src="avatar-2.jpg" />
+            <Avatar src="avatar-3.jpg" />
+            <Avatar src="avatar-4.jpg" />
+            <Avatar src="avatar-4.jpg" />
+            <Avatar src="avatar-4.jpg" />
+          </AvatarGroup>
+          <Avatar icon={<FiPlus />} ml={2} color="#fff" bgColor="gray.300" />
+        </Flex>
+        <Text color="gray" mt={10} mb={2}>Card Number</Text>
+        <InputGroup>
+          <InputLeftElement pointerEvents="none">
+            <FiCreditCard color="gray.700" />
+          </InputLeftElement>
+          <Input type="number" placeholder="xxxx xxxx xxxx xxx" />
+        </InputGroup>
+        <Text color="gray" mt={10} mb={2}>Sum</Text>
+        <InputGroup>
+          <InputLeftElement pointerEvents="none">
+            <FiDollarSign color="gray.700" />
+          </InputLeftElement>
+          <Input type="number" placeholder="130.00" />
+        </InputGroup>
+        <Button mt={4} bgColor="blackAlpha.900" color="#fff" p={7} borderRadius={15} >
+          Send Money
+        </Button>
       </Flex>
     </Flex >
   )

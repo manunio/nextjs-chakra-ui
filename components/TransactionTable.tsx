@@ -34,7 +34,7 @@ const fakeData = [
     avatarImg: "starbucks.png",
     nameOfTransaction: "Starbucks",
     nameOfTransactionText: "Apr 22, 2021 at 2.43pm",
-    category: "Electronic Devices",
+    category: "Card and Restaurant",
     cashback: "+$23",
     amount: "-$32"
   },
@@ -42,7 +42,7 @@ const fakeData = [
     avatarImg: "youtube.png",
     nameOfTransaction: "Youtube",
     nameOfTransactionText: "Apr 13, 2021 at 11.12am",
-    category: "Electronic Devices",
+    category: "Social Media",
     cashback: "+$4",
     amount: "-$112"
   },
